@@ -1,4 +1,5 @@
 // Vercel Serverless Function for Chat API
+// Fixed: 2026-04-22 11:15 UTC
 
 module.exports = async (req, res) => {
   // CORS Headers
