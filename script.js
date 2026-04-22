@@ -682,7 +682,9 @@ function handleChatOption(action) {
     if (action.includes('buy-')) {
       chatState.conversationStage = 'contact-info';
     }
+    return option;
   }
+  return { text: '¿En qué puedo ayudarte?', options: [] };
 }
 
 /**
