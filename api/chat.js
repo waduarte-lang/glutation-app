@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { message } = req.body;
+    const { message, history = [] } = req.body;
 
     if (!message) {
       return res.status(400).json({ error: 'Message required' });
@@ -29,6 +29,7 @@ export default async function handler(req, res) {
     console.log('CLAUDE_API_KEY exists:', hasApiKey);
     console.log('CLAUDE_API_KEY value starts with:', process.env.CLAUDE_API_KEY ? process.env.CLAUDE_API_KEY.substring(0, 10) : 'UNDEFINED');
     console.log('Message:', message);
+    console.log('Conversation history length:', history.length);
 
     // Return diagnostic if API key is missing
     if (!hasApiKey) {
@@ -50,11 +51,19 @@ export default async function handler(req, res) {
 
         const systemPrompt = buildSystemPrompt(message);
 
+        // Construir array de mensajes incluyendo historial
+        const messages = [
+          ...history, // Incluir historial previo
+          { role: 'user', content: message } // Agregar mensaje actual
+        ];
+
+        console.log('📊 Total messages sent to Claude:', messages.length);
+
         const response = await client.messages.create({
           model: 'claude-opus-4-1-20250805',
           max_tokens: 1024,
           system: systemPrompt,
-          messages: [{ role: 'user', content: message }]
+          messages: messages
         });
 
         return res.status(200).json({

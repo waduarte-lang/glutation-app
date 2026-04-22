@@ -533,6 +533,9 @@ const sendBtn = document.getElementById('sendChat');
 const openChatBotButtons = document.querySelectorAll('[id^="openChatBot"]');
 const closeChatBotButton = document.getElementById('closeChatBot');
 
+// Historial de conversación para mantener contexto con Claude API
+let conversationHistory = [];
+
 // Event Listeners
 openChatBotButtons.forEach(btn => {
   btn.addEventListener('click', openChat);
@@ -574,13 +577,16 @@ async function sendMessage() {
 
   // Mostrar mensaje del usuario
   addMessage(message, 'user');
+  // Agregar mensaje del usuario al historial
+  conversationHistory.push({ role: 'user', content: message });
+
   chatInput.value = '';
   chatInput.disabled = true;
   sendBtn.disabled = true;
 
   try {
     // Procesar mensaje (ahora es async con Claude API)
-    const response = await processUserMessage(message);
+    const response = await processUserMessage(message, conversationHistory);
 
     // Validar que response tiene estructura correcta
     if (!response || !response.text) {
@@ -591,6 +597,8 @@ async function sendMessage() {
 
     // Mostrar respuesta
     addMessage(response.text, 'bot', response.options || []);
+    // Agregar respuesta del bot al historial
+    conversationHistory.push({ role: 'assistant', content: response.text });
 
     // GA4: Track chat message
     trackChatMessage(message, response.text);
@@ -690,16 +698,21 @@ function handleChatOption(action) {
 /**
  * NUEVA FUNCIÓN: processUserMessage con Claude API
  * Reemplaza la lógica basada en palabras clave con IA inteligente
+ * Ahora con historial de conversación para mantener contexto
  */
-async function processUserMessage(message) {
+async function processUserMessage(message, history = []) {
   console.log('💬 Procesando mensaje:', message.substring(0, 50));
+  console.log('📜 Historial actual:', history.length, 'mensajes');
 
   try {
     // Intentar usar Claude API o fallback a palabras clave
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message })
+      body: JSON.stringify({
+        message,
+        history: history.slice(-10) // Enviar máx últimos 10 mensajes para economizar tokens
+      })
     });
 
     if (!response.ok) throw new Error('API error');
