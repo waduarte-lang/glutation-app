@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://glutationstore.com/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://glutationstore.com/images/Immunocal%20Platinum.png</image:loc>
+      <image:title>Immunocal Platinum - Producto Principal</image:title>
+    </image:image>
+  </url>
+
+  <!-- Secciones principales -->
+  <url>
+    <loc>https://glutationstore.com/#beneficios</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://glutationstore.com/#productos</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://glutationstore.com/#faq</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Productos individuales (para mejor indexación) -->
+  <url>
+    <loc>https://glutationstore.com/#regular</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://glutationstore.com/images/Immunocal%20Clasico.png</image:loc>
+      <image:title>Immunocal Regular</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://glutationstore.com/#platinum</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://glutationstore.com/images/Immunocal%20Platinum.png</image:loc>
+      <image:title>Immunocal Platinum - Más Popular</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://glutationstore.com/#optimizer</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://glutationstore.com/images/Optimizer.png</image:loc>
+      <image:title>Optimizer Rojos y Verdes</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://glutationstore.com/#performance</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://glutationstore.com/images/Optimizer%20Performance.png</image:loc>
+      <image:title>Optimizer Performance - Energía</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://glutationstore.com/#cafe</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Paquetes promocionales -->
+  <url>
+    <loc>https://glutationstore.com/#package-salud</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://glutationstore.com/#package-condicion</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://glutationstore.com/#package-performance</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://glutationstore.com/#package-antioxidante</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Accesorios -->
+  <url>
+    <loc>https://glutationstore.com/#shaker-1</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://glutationstore.com/#shaker-5</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://glutationstore.com/#shaker-10</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

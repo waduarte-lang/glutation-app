@@ -1,0 +1,39 @@
+# Glutation Store - robots.txt
+# Optimización SEO y control de crawlers
+
+User-agent: *
+Allow: /
+Allow: /images/
+Allow: /styles/
+Allow: /script.js
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*.pdf$
+
+# Google News
+User-agent: Googlebot-News
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Facebook
+User-agent: facebookexternalhit
+Allow: /
+
+# Crawl-delay y Request-rate
+User-agent: *
+Crawl-delay: 1
+Request-rate: 1/10s
+
+# Sitemap
+Sitemap: https://glutationstore.com/sitemap.xml
+Sitemap: https://glutationstore.com/products-sitemap.xml
+
+# Comentarios adicionales
+# Última actualización: 2026-04-21
+# Mantener sitemap.xml actualizado cuando se agreguen nuevos productos

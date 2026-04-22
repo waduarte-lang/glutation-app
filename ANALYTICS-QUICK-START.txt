@@ -1,0 +1,280 @@
+════════════════════════════════════════════════════════════════════════════════
+                    GOOGLE ANALYTICS 4 - QUICK START GUIDE
+                          Glutation Store | 2026-04-21
+════════════════════════════════════════════════════════════════════════════════
+
+📊 SETUP EN 3 PASOS (10 MINUTOS TOTALES)
+════════════════════════════════════════════════════════════════════════════════
+
+PASO 1: CREAR PROPIEDAD EN GA4 (5 min)
+────────────────────────────────────────────────────────────────────────────────
+1. Ir a: https://analytics.google.com/
+2. Click "Start measuring" (nueva propiedad)
+3. Nombre: "Glutation Store"
+4. Zona horaria: "America/Bogota"
+5. Moneda: "COP (Colombian Peso)"
+6. Click "Create"
+7. COPIAR: Measurement ID (G-XXXXXXXXXX)
+
+Resultado: Tienes tu ID de GA4 ✅
+
+
+PASO 2: AGREGAR CÓDIGO AL HTML (3 min)
+────────────────────────────────────────────────────────────────────────────────
+En index.html, línea 36 (ya está pero con placeholder):
+
+Busca:
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  gtag('config', 'G-XXXXXXXXXX', {
+
+Reemplaza G-XXXXXXXXXX con tu ID real:
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ABC123DEF456"></script>
+<script>
+  gtag('config', 'G-ABC123DEF456', {
+
+Resultado: GA4 está instalado en el sitio ✅
+
+
+PASO 3: AGREGAR EVENTOS EN script.js (2 min)
+────────────────────────────────────────────────────────────────────────────────
+1. Abre script.js
+2. Ve al FINAL del archivo (antes del cierre </script>)
+3. Copia COMPLETO el contenido de: GOOGLE-ANALYTICS-EVENTS.js
+4. Pega al final de script.js
+5. Guarda
+
+Resultado: Todos los eventos están listos para usar ✅
+
+
+INTEGRACIÓN EN FUNCIONES CLAVE (Próximo paso)
+────────────────────────────────────────────────────────────────────────────────
+
+En openChatBot():
+├─ Agregar: trackChatBotOpen();
+
+En processUserMessage():
+├─ Agregar: trackChatMessage(message, botResponse);
+
+En addToCart():
+├─ Agregar: trackAddToCart(productName, price, 1);
+
+En openCart():
+├─ Agregar: trackViewCart(calculateTotal(), cartItems.length);
+
+En proceedToCheckout():
+├─ Agregar: trackCheckoutStart(calculateTotal(), cartItems.length);
+
+En submitOrder():
+├─ Agregar: trackLeadCapture(fullName, phone, email, city);
+├─ Agregar: trackPurchase(orderId, totalValue, items);
+
+En links de WhatsApp:
+├─ onclick="trackWhatsAppClickHero();"
+├─ onclick="trackWhatsAppClickProducts();"
+├─ onclick="trackWhatsAppClickCTA();"
+
+
+════════════════════════════════════════════════════════════════════════════════
+                              VALIDACIÓN (5 MIN)
+════════════════════════════════════════════════════════════════════════════════
+
+PASO 1: Verificar que GA4 está funcionando
+────────────────────────────────────────────────────────────────────────────────
+1. Abre: https://glutationstore.com (tu sitio)
+2. Abre DevTools (F12 en Chrome)
+3. Ve a Console (tab)
+4. Deberías ver mensajes: "✓ GA4: ..."
+
+Resultado: GA4 está enviando datos ✅
+
+
+PASO 2: Ver en Google Analytics Real-time
+────────────────────────────────────────────────────────────────────────────────
+1. Abre: https://analytics.google.com
+2. Selecciona tu propiedad "Glutation Store"
+3. Ve a Reports → Real-time
+4. Tu sesión debe aparecer en los próximos 10 segundos
+5. Si ves "Active users: 1" = funciona perfectamente ✅
+
+Resultado: Tu sitio está conectado a GA4 ✅
+
+
+PASO 3: Crear Dashboard Personalizado (Opcional pero recomendado)
+────────────────────────────────────────────────────────────────────────────────
+1. En GA4 → Dashboards → Create new dashboard
+2. Nombre: "Glutation Store - Overview"
+3. Agregar widgets:
+   ├─ Sessions (gráfico de líneas)
+   ├─ Users (métrica)
+   ├─ Conversion rate (métrica)
+   ├─ Purchase (evento)
+   ├─ Chatbot message (evento)
+   └─ Click whatsapp (evento)
+
+Resultado: Dashboard visualmente atractivo listo ✅
+
+
+════════════════════════════════════════════════════════════════════════════════
+                            EVENTOS PRINCIPALES
+════════════════════════════════════════════════════════════════════════════════
+
+CHAT BOT EVENTS:
+├─ chatbot_open              → Usuario abre chat
+├─ chatbot_message           → Usuario envía mensaje
+├─ chatbot_purchase_intent   → Usuario quiere comprar
+└─ chatbot_whatsapp_redirect → Redirige a WhatsApp
+
+PRODUCTO EVENTS:
+├─ view_item                 → Usuario ve producto
+├─ add_to_cart              → Agrega al carrito
+└─ remove_from_cart         → Quita del carrito
+
+COMPRA EVENTS:
+├─ view_cart                 → Abre carrito
+├─ begin_checkout           → Inicia checkout
+├─ generate_lead            → Captura datos
+└─ purchase                 → COMPRA COMPLETADA ⭐
+
+WHATSAPP EVENTS:
+├─ click_whatsapp (hero)     → Botón en hero
+├─ click_whatsapp (products) → Botón en productos
+└─ click_whatsapp (cta)      → Botón en CTA final
+
+ENGAGEMENT:
+├─ scroll_depth              → Usuario scrollea
+└─ page_time                 → Tiempo en página
+
+
+════════════════════════════════════════════════════════════════════════════════
+                         MÉTRICAS CLAVE A MONITOREAR
+════════════════════════════════════════════════════════════════════════════════
+
+DIARIO (Revisar cada mañana):
+┌──────────────────────────────────────────────────────────────┐
+│ Métrica          │ Ayer    │ Hoy    │ Cambio │ Meta         │
+├──────────────────────────────────────────────────────────────┤
+│ Sesiones         │ XX      │ XX     │ ↗/→/↘  │ ↗ crecer     │
+│ Usuarios nuevos  │ XX      │ XX     │ ↗/→/↘  │ ↗ crecer     │
+│ Tasa de rebote   │ XX%     │ XX%    │ ↗/→/↘  │ ↘ bajar      │
+│ Tiempo promedio  │ XXs     │ XXs    │ ↗/→/↘  │ ↗ crecer     │
+└──────────────────────────────────────────────────────────────┘
+
+SEMANAL (Cada lunes):
+┌──────────────────────────────────────────────────────────────┐
+│ Conversiones     │ Semana  │ Meta   │ %      │ Progreso     │
+├──────────────────────────────────────────────────────────────┤
+│ Usuarios únicos  │ XXX     │ 100+   │ XX%    │ 📈 en track  │
+│ Clics (compra)   │ XX      │ 10+    │ XX%    │ 📈 en track  │
+│ Compras          │ X       │ 2+     │ XX%    │ 📉 bajo      │
+│ Leads capturados │ XX      │ 5+     │ XX%    │ 📈 en track  │
+└──────────────────────────────────────────────────────────────┘
+
+MENSUAL (Primer día de mes):
+┌──────────────────────────────────────────────────────────────┐
+│ Métrica              │ Este mes │ Mes ant. │ Cambio         │
+├──────────────────────────────────────────────────────────────┤
+│ Total sesiones       │ XXXX     │ XXXX     │ +X% ↗          │
+│ Tasa conversión      │ X.X%     │ X.X%     │ +X.X% ↗        │
+│ Ingresos estimados   │ $XXXXX   │ $XXXXX   │ +$XXXX ↗       │
+│ Bot effectiveness    │ XX%      │ XX%      │ +X% ↗          │
+└──────────────────────────────────────────────────────────────┘
+
+
+════════════════════════════════════════════════════════════════════════════════
+                            TROUBLESHOOTING
+════════════════════════════════════════════════════════════════════════════════
+
+❌ "No veo datos en GA4"
+   ✓ Espera 24-48 horas (GA4 tarda en procesar)
+   ✓ Verifica que el ID sea correcto en el HTML
+   ✓ Abre DevTools → Console → busca "GA4" (debe haber ✓)
+   ✓ Revisa en Real-time si apareces como active user
+
+❌ "Los eventos no se registran"
+   ✓ Verifica que las funciones estén en script.js
+   ✓ Verifica que se llamen correctamente (ej: trackAddToCart())
+   ✓ Abre DevTools → Console → busca "✓ GA4: [evento]"
+   ✓ Si ves errores, copia el error exacto
+
+❌ "Veo eventos duplicados"
+   ✓ Asegúrate de no llamar la función 2 veces
+   ✓ Revisa que no esté tanto en onclick como en JavaScript
+   ✓ Usa una sola forma de llamada (preferir en JS)
+
+❌ "Mis ingresos no se muestran"
+   ✓ Asegúrate de pasar el parámetro 'value' en trackPurchase()
+   ✓ El valor debe ser un número (ej: 366000, no "$366,000")
+   ✓ Currency debe ser "COP"
+   ✓ Espera 24h para que aparezca en reportes
+
+
+════════════════════════════════════════════════════════════════════════════════
+                          PRÓXIMOS PASOS
+════════════════════════════════════════════════════════════════════════════════
+
+HOY (Setup inicial):
+✅ Crear propiedad en GA4
+✅ Obtener Measurement ID
+✅ Agregar código en HTML (ya hecho)
+✅ Copiar eventos en script.js
+✅ Validar en Real-time
+
+ESTA SEMANA (Integración):
+└─ Integrar trackChatBotOpen() en openChatBot()
+└─ Integrar trackAddToCart() en addToCart()
+└─ Integrar trackPurchase() en submitOrder()
+└─ Integrar links de WhatsApp
+└─ Probar en navegador (DevTools)
+
+PRÓXIMA SEMANA (Monitoreo):
+└─ Revisar datos en GA4 (después de 24-48h)
+└─ Crear dashboard personalizado
+└─ Establecer ritual mensual de revisión
+└─ Documentar baseline metrics
+
+PRÓXIMO MES (Optimización):
+└─ Analizar qué funciona bien
+└─ Mejorar qué no funciona
+└─ Aumentar marketing en canales efectivos
+└─ Redirigir presupuesto a high-ROI
+
+
+════════════════════════════════════════════════════════════════════════════════
+                         ARCHIVO DE DOCUMENTOS
+════════════════════════════════════════════════════════════════════════════════
+
+LEER EN ESTE ORDEN:
+
+1. Este archivo (ANALYTICS-QUICK-START.txt) - Overview rápido
+2. GOOGLE-ANALYTICS-SETUP.md - Guía completa (20 min lectura)
+3. GOOGLE-ANALYTICS-EVENTS.js - Código para copiar/pegar
+4. Luego integrar según instrucciones
+
+
+════════════════════════════════════════════════════════════════════════════════
+                          CONTACTO SUPPORT
+════════════════════════════════════════════════════════════════════════════════
+
+Documentación oficial Google Analytics:
+→ https://support.google.com/analytics
+
+GA4 Setup Guide:
+→ https://support.google.com/analytics/answer/10089681
+
+Troubleshooting eventos:
+→ https://support.google.com/analytics/answer/9267744
+
+Dashboard personalizado:
+→ https://support.google.com/analytics/answer/1033840
+
+
+════════════════════════════════════════════════════════════════════════════════
+
+⏱️  TIEMPO TOTAL: 10 minutos
+✅ RESULTADO: Google Analytics 4 completamente funcional
+📊 VALOR: Visibilidad 100% de tu negocio + datos para optimizar
+
+¡Adelante! 🚀
+
+════════════════════════════════════════════════════════════════════════════════
