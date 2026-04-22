@@ -689,48 +689,26 @@ function handleChatOption(action) {
  * NUEVA FUNCIÓN: processUserMessage con Claude API
  * Reemplaza la lógica basada en palabras clave con IA inteligente
  */
-async function processUserMessage(message) {
+function processUserMessage(message) {
+  console.log('💬 Procesando mensaje localmente:', message.substring(0, 50));
+
   try {
-    console.log('📨 Enviando a /api/chat:', message.substring(0, 50));
-    
-    // Llamar al servidor
-    const response = await fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: message,
-        sessionId: 'chat_session'
-      })
-    });
-
-    const result = await response.json();
-
-    if (!result.success) {
-      console.warn('⚠️ Usando fallback');
-      return processUserMessage_Keyword(message) || {
-        text: 'Error. Intenta de nuevo.',
-        options: []
-      };
-    }
-
-    // Extraer datos si vienen del servidor
-    if (result.userData) {
-      if (result.userData.name) chatState.userInfo.name = result.userData.name;
-      if (result.userData.phone) chatState.userInfo.phone = result.userData.phone;
-      if (result.userData.email) chatState.userInfo.email = result.userData.email;
-    }
+    // Usar directamente el sistema de palabras clave
+    const response = processUserMessage_Keyword(message);
 
     captureEvent('chat_message_processed');
 
-    return {
-      text: result.text,
+    return response || {
+      text: '👋 No entendí bien. ¿Puedes preguntarme sobre precios, envíos o beneficios?',
       options: []
     };
 
   } catch (error) {
-    console.error('❌ Error:', error);
-    const fallback = processUserMessage_Keyword(message);
-    return fallback || { text: 'Error de conexión.', options: [] };
+    console.error('❌ Error procesando mensaje:', error);
+    return {
+      text: 'Disculpa, tuve un error. ¿Qué necesitas?',
+      options: []
+    };
   }
 }
 
