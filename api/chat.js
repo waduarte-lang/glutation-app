@@ -1,5 +1,5 @@
 // Import knowledge base
-import knowledgeBase from '../data/knowledge-base.json' assert { type: 'json' };
+import knowledgeBase from '../data/knowledge-base.json' with { type: 'json' };
 
 export default async function handler(req, res) {
   // CORS headers for cross-origin requests
