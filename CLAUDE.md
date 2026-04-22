@@ -322,14 +322,27 @@ git push                             # Push a master (auto-deploy)
 
 ## 📅 Changelog
 
-**2026-04-22**:
-- ✅ Claude API funcionando (modelo: claude-opus-4-1-20250805)
-- ✅ Sales Funnel implementado (4 stages)
-- ✅ Prompt conversacional-consultivo optimizado
-- ✅ CLAUDE.md documentado
+**2026-04-22 (Tarde)**:
+- ✅ Knowledge Base integrado (`/data/knowledge-base.json`)
+  - Bot ahora tiene acceso a información detallada sobre glutatión e Immunocal
+  - Sistema dinámico: solo carga información relevante según el contexto
+  - Bioavailabilidad, timeline de resultados, comparativas con alternativas
+- ✅ Historial de Conversación implementado
+  - Frontend: `conversationHistory` array en script.js
+  - Backend: recibe y procesa historial en api/chat.js
+  - Bot mantiene contexto completo y responde coherentemente
+  - Máx 10 mensajes previos para economizar tokens
+- ✅ Fixes:
+  - Cambio de sintaxis `assert` → `with` para compatibilidad Node.js moderno
+
+**2026-04-22 (Mañana)**:
+- ⏳ WhatsApp + Twilio Integration (Fase 5 del plan original)
+- ⏳ Sales Funnel automático en WhatsApp
+- ⏳ Bot 24/7 en +57 310 5356668
 
 ---
 
 **Creado por**: Claude Code + Usuario  
-**Última actualización**: 2026-04-22  
-**Próxima revisión**: 2026-05-22 o cuando se agregue WhatsApp
+**Última actualización**: 2026-04-22 (Tarde)  
+**Próxima sesión**: WhatsApp + Twilio Integration  
+**Estado**: 🟢 Todo funcional y listo para Phase 5
