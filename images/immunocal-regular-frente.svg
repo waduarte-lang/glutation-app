@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+  <!-- Fondo degradado -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#172554;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="300" height="400" fill="url(#grad1)"/>
+  
+  <!-- Caja del producto con sombra -->
+  <filter id="shadow">
+    <feDropShadow dx="3" dy="3" stdDeviation="3" flood-opacity="0.3"/>
+  </filter>
+  
+  <!-- Caja principal -->
+  <rect x="50" y="80" width="200" height="250" rx="8" fill="url(#boxGrad)" filter="url(#shadow)"/>
+  
+  <!-- Borde superior brillante -->
+  <rect x="50" y="80" width="200" height="15" rx="8" fill="#3b82f6" opacity="0.6"/>
+  
+  <!-- Línea de separación -->
+  <line x1="50" y1="200" x2="250" y2="200" stroke="#1e40af" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Texto del producto -->
+  <text x="150" y="150" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">IMMUNOCAL</text>
+  <text x="150" y="175" font-family="Arial, sans-serif" font-size="16" fill="#e0e7ff" text-anchor="middle">Regular</text>
+  
+  <!-- Icono glutatión -->
+  <circle cx="150" cy="240" r="25" fill="#3b82f6" opacity="0.2"/>
+  <text x="150" y="250" font-family="Arial, sans-serif" font-size="35" text-anchor="middle" fill="#60a5fa">⚡</text>
+  
+  <!-- Información al fondo -->
+  <text x="150" y="320" font-family="Arial, sans-serif" font-size="12" fill="#a5b4fc" text-anchor="middle">30 Sobres</text>
+  <text x="150" y="340" font-family="Arial, sans-serif" font-size="11" fill="#818cf8" text-anchor="middle">Proteína + Glutatión</text>
+</svg>
