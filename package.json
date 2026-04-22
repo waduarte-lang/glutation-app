@@ -1,0 +1,21 @@
+{
+  "name": "glutation-store",
+  "version": "1.0.0",
+  "description": "Glutation Store - Immunocal E-commerce",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "immunocal",
+    "glutation",
+    "ecommerce",
+    "colombia"
+  ],
+  "author": "Glutation Store",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x"
+  }
+}
