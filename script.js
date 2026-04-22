@@ -691,24 +691,35 @@ function handleChatOption(action) {
  * NUEVA FUNCIÓN: processUserMessage con Claude API
  * Reemplaza la lógica basada en palabras clave con IA inteligente
  */
-function processUserMessage(message) {
+async function processUserMessage(message) {
   console.log('💬 Procesando mensaje:', message.substring(0, 50));
 
   try {
-    // Usar sistema de palabras clave local (rápido y confiable)
-    const response = processUserMessage_Keyword(message);
+    // Intentar usar Claude API o fallback a palabras clave
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message })
+    });
+
+    if (!response.ok) throw new Error('API error');
+
+    const result = await response.json();
+    console.log(`✅ Respuesta de ${result.source}:`, result.text.substring(0, 50));
 
     captureEvent('chat_message_processed');
 
-    return response || {
-      text: '👋 No entendí bien. ¿Puedes preguntarme sobre precios, envíos o beneficios?',
+    return {
+      text: result.text,
       options: []
     };
 
   } catch (error) {
-    console.error('❌ Error procesando mensaje:', error);
-    return {
-      text: 'Disculpa, tuve un error. ¿Qué necesitas?',
+    console.warn('⚠️ Usando fallback local:', error.message);
+    // Fallback automático a palabras clave locales
+    const fallback = processUserMessage_Keyword(message);
+    return fallback || {
+      text: '👋 No entendí bien. ¿Puedes preguntarme sobre precios?',
       options: []
     };
   }
