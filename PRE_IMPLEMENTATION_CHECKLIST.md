@@ -16,12 +16,18 @@
 3. Buscar "CLAUDE_API_KEY" - si no está, falta variable de entorno
 4. Hacer Redeploy a Production (no Preview)
 
-## Modelo correcto (ACTUALIZADO)
+## Modelo correcto (VERIFICADO - 2026-04-22)
 
 ```javascript
-model: 'claude-3-5-sonnet-20240620'  // ✅ CORRECTO
-// NO usar: 'claude-3-5-sonnet-20241022'  // ❌ RETORNA 404
+model: 'claude-opus-4-1-20250805'  // ✅ CORRECTO Y VERIFICADO FUNCIONANDO
+
+// ❌ NO usar estos (devuelven 404 - NO EXISTEN):
+// 'claude-3-5-sonnet-20241022'
+// 'claude-3-5-sonnet-20240620'
+// 'claude-3-sonnet-20240229'
 ```
+
+**Verificación**: Probado directamente con curl - funciona 100%
 
 ---
 
