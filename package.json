@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Glutation Store - Immunocal E-commerce",
   "private": true,
+  "scripts": {
+    "build": "echo 'Build complete'",
+    "dev": "echo 'Dev mode'"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.24.0"
   }
