@@ -21,6 +21,10 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Message required' });
     }
 
+    // DEBUG: Log environment variable
+    console.log('CLAUDE_API_KEY exists:', !!process.env.CLAUDE_API_KEY);
+    console.log('Message:', message);
+
     // Intentar Claude API
     if (process.env.CLAUDE_API_KEY) {
       try {
