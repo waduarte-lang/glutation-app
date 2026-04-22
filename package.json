@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "echo 'Build complete'"
   },
   "keywords": [
     "immunocal",
@@ -17,5 +18,8 @@
   "license": "MIT",
   "engines": {
     "node": "18.x"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0"
   }
 }
