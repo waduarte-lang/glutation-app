@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+  <!-- Fondo oscuro -->
+  <defs>
+    <linearGradient id="gradPerfLat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#78350f;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#431407;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="boxGradPerfLat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ea580c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#c2410c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c2d12;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="300" height="400" fill="url(#gradPerfLat)"/>
+  
+  <!-- Caja girada con energía -->
+  <filter id="shadowPerf">
+    <feDropShadow dx="5" dy="4" stdDeviation="5" flood-opacity="0.35"/>
+  </filter>
+  
+  <g transform="perspective(800px) rotateY(-20deg)">
+    <rect x="50" y="80" width="200" height="250" rx="8" fill="url(#boxGradPerfLat)" filter="url(#shadowPerf)"/>
+    <rect x="50" y="80" width="200" height="18" rx="8" fill="#7c2d12" opacity="0.6"/>
+  </g>
+  
+  <!-- Texto lateral -->
+  <text x="150" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fed7aa" text-anchor="middle">OPTIMIZER</text>
+  <text x="150" y="170" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#fdba74" text-anchor="middle">PERFORMANCE</text>
+  
+  <!-- Icono lateral -->
+  <circle cx="150" cy="245" r="32" fill="#c2410c" opacity="0.2"/>
+  <text x="150" y="263" font-family="Arial, sans-serif" font-size="50" text-anchor="middle" fill="#ea580c">⚡</text>
+  
+  <!-- Información -->
+  <text x="150" y="320" font-family="Arial, sans-serif" font-size="12" fill="#fed7aa" text-anchor="middle">Vista Lateral</text>
+  <text x="150" y="340" font-family="Arial, sans-serif" font-size="10" fill="#fdba74" text-anchor="middle">Máximo Rendimiento</text>
+</svg>
