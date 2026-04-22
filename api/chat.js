@@ -22,8 +22,20 @@ export default async function handler(req, res) {
     }
 
     // DEBUG: Log environment variable
-    console.log('CLAUDE_API_KEY exists:', !!process.env.CLAUDE_API_KEY);
+    const hasApiKey = !!process.env.CLAUDE_API_KEY;
+    console.log('CLAUDE_API_KEY exists:', hasApiKey);
+    console.log('CLAUDE_API_KEY value starts with:', process.env.CLAUDE_API_KEY ? process.env.CLAUDE_API_KEY.substring(0, 10) : 'UNDEFINED');
     console.log('Message:', message);
+
+    // Return diagnostic if API key is missing
+    if (!hasApiKey) {
+      return res.status(200).json({
+        success: false,
+        text: '❌ ERROR: CLAUDE_API_KEY no está configurada en variables de entorno',
+        source: 'error',
+        debug: { apiKeyExists: false }
+      });
+    }
 
     // Intentar Claude API
     if (process.env.CLAUDE_API_KEY) {
