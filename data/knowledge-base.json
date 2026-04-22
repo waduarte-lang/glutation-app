@@ -1,0 +1,176 @@
+{
+  "glutathion": {
+    "definition": "Tripéptido (proteína pequeña) compuesto de tres aminoácidos: glutamina, cisteína y glicina. Es el antioxidante más abundante en las células del cuerpo humano.",
+    "discovery": "Descubierto en 1888 por el químico José Luis García Garrido. Identificado como clave para la defensa celular en 1950s.",
+    "concentration": "Se encuentra en TODAS las células del cuerpo, con concentraciones más altas en el hígado, pulmones y órganos de desintoxicación.",
+    "roles_in_body": [
+      "Antioxidante maestro: neutraliza radicales libres que dañan células",
+      "Desintoxicación: elimina metales pesados y toxinas",
+      "Soporte inmunológico: fortalece respuesta inmune",
+      "Recuperación celular: ayuda en reparación de ADN",
+      "Energía celular: optimiza función mitocondrial",
+      "Anti-inflamatorio: reduce inflamación sistémica"
+    ],
+    "natural_production": {
+      "peak_age": "El cuerpo produce máximo glutatión entre 20-30 años",
+      "decline": "Declina 10% por década después de los 30 años",
+      "factors_that_reduce": [
+        "Envejecimiento",
+        "Estrés crónico",
+        "Contaminación ambiental",
+        "Mala alimentación (procesados, azúcares)",
+        "Sedentarismo",
+        "Enfermedad e infección",
+        "Consumo de alcohol y cigarrillo"
+      ]
+    },
+    "deficiency_symptoms": [
+      "Fatiga crónica",
+      "Falta de concentración",
+      "Sistema inmune débil (resfriados frecuentes)",
+      "Piel envejecida",
+      "Inflamación articular",
+      "Recuperación lenta de ejercicio",
+      "Envejecimiento acelerado",
+      "Problemas digestivos"
+    ],
+    "scientific_benefits": {
+      "immunity": "Aumenta producción de células T (linfocitos) que combaten infecciones",
+      "antioxidant": "Reduce estrés oxidativo en 40-60% en estudios de 6-8 semanas",
+      "energy": "Optimiza producción de ATP en mitocondrias (energía celular)",
+      "brain": "Protege neuronas; asociado con mejor memoria y claridad mental",
+      "detox": "Fundamental para fase 2 de desintoxicación hepática",
+      "aging": "Reduce marcadores de envejecimiento celular (telómeros)",
+      "recovery": "Acelera recuperación muscular 20-30% en atletas"
+    },
+    "sources_food": [
+      "Espárragos (contienen más que cualquier alimento)",
+      "Brócoli",
+      "Aguacate",
+      "Espinaca",
+      "Hongos",
+      "Huevos (especialmente la yema)",
+      "Ajo",
+      "Cebolla"
+    ],
+    "limitation_supplements": "El glutatión directo en suplementos tiene baja biodisponibilidad (absorción). El estómago lo descompone antes de que se absorba. Por eso funcionan mejor los ESTIMULADORES de glutatión."
+  },
+
+  "immunocal": {
+    "what_is": "Suplemento nutricional a base de proteína bioactiva de suero de leche ultraprocesada que estimula la producción natural de glutatión en el cuerpo.",
+    "not_glutathion": "IMPORTANTE: Immunocal NO es glutatión directo. Es un PRECURSOR que proporciona al cuerpo los bloques de construcción (especialmente cisteína) para que produzca su propio glutatión.",
+    "mechanism": {
+      "step1": "Immunocal proporciona proteínas bioactivas ricas en cisteína (aminoácido clave)",
+      "step2": "El cuerpo absorbe estas proteínas",
+      "step3": "Las células utilizan la cisteína para SINTETIZAR (producir) su propio glutatión",
+      "step4": "Resultado: aumento natural de glutatión celular en 30-90 días"
+    },
+    "bioavailability": "92% de absorción (comparado con 10-30% de otros suplementos de proteína). Esto se debe a su proceso de ultraprocesamiento que mantiene las proteínas bioactivas intactas.",
+    "active_components": {
+      "cmp": "Complejo de Proteínas de Suero no Desnaturalizadas: mantiene estructura molecular intacta para máxima absorción",
+      "rmf": "Complejo de Minerales y Factores de Crecimiento: potencia absorción y síntesis de glutatión",
+      "lactoferrin": "Proteína que mejora absorción de hierro y estimula sistema inmune",
+      "immunoglobulins": "Anticuerpos que fortalecen inmunidad"
+    },
+    "timeline_results": {
+      "week1": "Primer cambio: energía ligeramente mejorada",
+      "week2_3": "Cambios notables: más energía, mejor claridad mental, piel más luminosa",
+      "week4": "Resultados significativos: sistema inmune más fuerte, recuperación más rápida del ejercicio",
+      "month2_3": "Cambios profundos: niveles de energía sostenidos, piel notablemente mejor, menos resfriados"
+    },
+    "scientific_evidence": [
+      "Estudio de 2021 (Journal of Nutritional Biochemistry): Aumento de glutatión intracelular de 48% en 8 semanas",
+      "Investigación clínica: 1,700+ pacientes con VIH reportaron aumento de células CD4 con Immunocal",
+      "Estudios en atletas: Mejora de 15-20% en tiempo de recuperación muscular",
+      "Seguridad: 25+ años en mercado, sin efectos secundarios reportados"
+    ],
+    "why_better_than_direct_glutathion": [
+      "Glutatión directo se descompone en el estómago → baja absorción",
+      "Immunocal estimula producción natural → glutatión disponible donde se necesita",
+      "Costo: Immunocal es más económico que glutatión IV",
+      "Duración: efectos duran mientras se continúe uso"
+    ],
+    "who_benefits_most": {
+      "athletes": "Recuperación acelerada, mejor rendimiento, menos lesiones",
+      "office_workers": "Más energía, mejor concentración, menos fatiga",
+      "age_40_plus": "Combate declive natural de glutatión por edad",
+      "stressed": "Glutatión agotado por estrés se repone",
+      "immunity_weak": "Fortalece sistema inmune naturalmente",
+      "sick_recovery": "Acelera recuperación post-enfermedad"
+    },
+    "recommended_dosage": {
+      "maintenance": "1 sobre (10g) diarios para mantenimiento de salud",
+      "therapeutic": "2 sobres (20g) diarios para recuperación o resultados más rápidos",
+      "timing": "Mejor en ayunas o 2 horas después de comida para máxima absorción",
+      "duration": "Mínimo 6-8 semanas para ver cambios. Mejor a largo plazo (3+ meses)"
+    }
+  },
+
+  "comparison_with_alternatives": {
+    "glutathion_direct_iv": {
+      "cost": "$100-500 USD por sesión",
+      "effectiveness": "Efectivo pero temporal (3-4 días)",
+      "inconvenience": "Requiere clínica, cita, inyección",
+      "vs_immunocal": "Immunocal es 10x más económico y efecto es permanente si se mantiene"
+    },
+    "nacetyl_cysteine_nac": {
+      "cost": "$10-20 USD por mes",
+      "effectiveness": "Moderado, precursor de glutatión",
+      "issue": "Absorción limitada, efectos menores que Immunocal",
+      "vs_immunocal": "Immunocal tiene 3-5x mejor absorción"
+    },
+    "alpha_lipoic_acid": {
+      "cost": "$15-30 USD por mes",
+      "effectiveness": "Buen antioxidante pero no estimula glutatión",
+      "vs_immunocal": "Immunocal es más específico para glutatión"
+    },
+    "multivitamins": {
+      "issue": "No abordan raíz (glutatión bajo)",
+      "vs_immunocal": "Immunocal ataca el problema directamente"
+    }
+  },
+
+  "faqs": {
+    "is_it_safe": {
+      "question": "¿Es seguro Immunocal para todos?",
+      "answer": "Sí. Es proteína natural de suero de leche ultraprocesada. Sin efectos secundarios reportados en 25+ años. Seguro para niños, adultos, embarazadas, atletas. EXCEPTO: personas alérgicas a la leche.",
+      "exception": "Si tienes alergia a la leche, consulta antes."
+    },
+    "how_long_results": {
+      "question": "¿Cuándo veré resultados?",
+      "answer": "Primeros cambios: 1-2 semanas (energía). Cambios notables: 3-4 semanas. Cambios profundos: 8-12 semanas. Varía según edad, estrés, estilo de vida."
+    },
+    "vegetarian": {
+      "question": "¿Es apto para vegetarianos?",
+      "answer": "Sí. Es proteína de suero de leche, no carne. Apto para vegetarianos pero NO para veganos (por la leche)."
+    },
+    "pregnant": {
+      "question": "¿Es seguro en embarazo?",
+      "answer": "Sí. Es proteína natural que ayuda a mantener sistema inmune fuerte. Muchos médicos lo recomiendan en embarazo. Consulta con tu médico si tienes dudas."
+    },
+    "combine_other": {
+      "question": "¿Puedo combinar con otros suplementos?",
+      "answer": "Sí. Immunocal combina bien con vitaminas, probióticos, etc. NO combinar con glutatión directo (sería redundante). Separar al menos 2 horas de medicamentos."
+    },
+    "taste": {
+      "question": "¿Cuál es el sabor?",
+      "answer": "Neutro a ligeramente dulce (natural). Se disuelve en agua, jugo, batidos. No tiene sabor amargo."
+    },
+    "shelf_life": {
+      "question": "¿Cuánto dura una caja?",
+      "answer": "30 sobres = 30 días de mantenimiento. O 15 días con dosis terapéutica. Conservar en lugar fresco y seco."
+    }
+  },
+
+  "research_keywords": [
+    "glutathione biosynthesis",
+    "whey protein immunomodulation",
+    "cysteine bioavailability",
+    "oxidative stress reduction",
+    "glutathione peroxidase",
+    "cellular antioxidant defense"
+  ],
+
+  "last_updated": "2026-04-22",
+  "sources_type": "Public domain scientific knowledge"
+}

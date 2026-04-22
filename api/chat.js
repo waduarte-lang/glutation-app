@@ -1,3 +1,6 @@
+// Import knowledge base
+import knowledgeBase from '../data/knowledge-base.json' assert { type: 'json' };
+
 export default async function handler(req, res) {
   // CORS headers for cross-origin requests
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -45,10 +48,109 @@ export default async function handler(req, res) {
           apiKey: process.env.CLAUDE_API_KEY
         });
 
+        const systemPrompt = buildSystemPrompt(message);
+
         const response = await client.messages.create({
           model: 'claude-opus-4-1-20250805',
           max_tokens: 1024,
-          system: `Eres asesor de salud consultivo para Glutation Store (Immunocal Colombia).
+          system: systemPrompt,
+          messages: [{ role: 'user', content: message }]
+        });
+
+        return res.status(200).json({
+          success: true,
+          text: response.content[0].text,
+          source: 'claude'
+        });
+      } catch (error) {
+        console.error('Claude error:', error.message);
+        return res.status(200).json({
+          success: true,
+          text: getResponse(message),
+          source: 'fallback'
+        });
+      }
+    } else {
+      return res.status(200).json({
+        success: true,
+        text: getResponse(message),
+        source: 'fallback'
+      });
+    }
+  } catch (error) {
+    console.error('Server error:', error);
+    return res.status(500).json({ error: 'Server error' });
+  }
+}
+
+function buildSystemPrompt(userMessage) {
+  const lowerMessage = userMessage.toLowerCase();
+
+  // Detectar si el mensaje menciona glutatión, Immunocal, energía, inmunidad, etc.
+  const mentionsGlutathion = lowerMessage.includes('glutatión') || lowerMessage.includes('glutathion');
+  const mentionsImmunocal = lowerMessage.includes('immunocal') || lowerMessage.includes('immuno');
+  const mentionsEnergy = lowerMessage.includes('energía') || lowerMessage.includes('cansancio') || lowerMessage.includes('fatiga');
+  const mentionsImmunity = lowerMessage.includes('inmune') || lowerMessage.includes('inmunidad') || lowerMessage.includes('resfriado');
+  const mentionsBenefits = lowerMessage.includes('beneficio') || lowerMessage.includes('para qué') || lowerMessage.includes('sirve');
+
+  let knowledgeSection = '';
+
+  if (mentionsGlutathion || mentionsImmunocal || mentionsEnergy || mentionsImmunity || mentionsBenefits) {
+    knowledgeSection = `
+═══ CONOCIMIENTO TÉCNICO SOBRE GLUTATIÓN E IMMUNOCAL ═══
+
+**QUÉ ES GLUTATIÓN:**
+${knowledgeBase.glutathion.definition}
+
+**ROLES PRINCIPALES EN EL CUERPO:**
+${knowledgeBase.glutathion.roles_in_body.map(role => `• ${role}`).join('\n')}
+
+**SÍNTOMAS DE DEFICIENCIA:**
+${knowledgeBase.glutathion.deficiency_symptoms.map(symptom => `• ${symptom}`).join('\n')}
+
+**PRODUCCIÓN NATURAL DEL CUERPO:**
+- El cuerpo produce máximo glutatión entre 20-30 años
+- Después de los 30, declina 10% por década
+- Factores que reducen: estrés, contaminación, mala alimentación, sedentarismo, alcohol, cigarrillo
+
+**QUÉ ES IMMUNOCAL:**
+${knowledgeBase.immunocal.what_is}
+
+**IMPORTANTE - NO ES GLUTATIÓN DIRECTO:**
+${knowledgeBase.immunocal.not_glutathion}
+
+**CÓMO FUNCIONA:**
+${knowledgeBase.immunocal.mechanism.step1}
+${knowledgeBase.immunocal.mechanism.step2}
+${knowledgeBase.immunocal.mechanism.step3}
+${knowledgeBase.immunocal.mechanism.step4}
+
+**BIOAVAILABILIDAD:**
+${knowledgeBase.immunocal.bioavailability}
+
+**RESULTADOS ESPERADOS:**
+- Semana 1: Energía ligeramente mejorada
+- Semanas 2-3: Más energía, mejor claridad mental, piel más luminosa
+- Semana 4: Sistema inmune más fuerte, recuperación de ejercicio
+- Meses 2-3: Niveles de energía sostenidos, piel notablemente mejor
+
+**DOSIS RECOMENDADA:**
+- Mantenimiento: 1 sobre (10g) diarios
+- Terapéutico: 2 sobres (20g) diarios para resultados más rápidos
+- Duración: Mínimo 6-8 semanas para ver cambios
+
+**COMPARACIÓN CON ALTERNATIVAS:**
+- Glutatión IV: $100-500 por sesión, efecto 3-4 días (Immunocal es 10x más económico)
+- NAC: $10-20/mes, absorción limitada (Immunocal tiene 3-5x mejor absorción)
+- Multivitaminas: No abordan la raíz (Immunocal es específico para glutatión)
+
+USO ESTE CONOCIMIENTO NATURALMENTE EN TUS RESPUESTAS, SIN ABRUMAR AL CLIENTE.
+Si el cliente pregunta por detalles, proporciona información específica.
+Si aún no pregunta, deja que descubra gradualmente mediante preguntas.
+`;
+  }
+
+  const basePrompt = `Eres asesor de salud consultivo para Glutation Store (Immunocal Colombia).
 FILOSOFÍA: NO dar toda la información de una vez. Ser conversacional, hacer preguntas, construir confianza.
 Tu estilo: Como un amigo que te aconseja, no como vendedor.
 
@@ -124,34 +226,9 @@ TÚ: "Buena pregunta. Nuestros clientes reportan cambios en 2-3 semanas. ¿Cuál
 - Tono: Amigo consultivo, no vendedor
 - Emoji: 1-2 máximo por mensaje
 - Responde SOLO en español
-- Objetivo: Que el cliente QUIERA hablar contigo, no sentir que lo venden`,
-          messages: [{ role: 'user', content: message }]
-        });
+- Objetivo: Que el cliente QUIERA hablar contigo, no sentir que lo venden${knowledgeSection}`;
 
-        return res.status(200).json({
-          success: true,
-          text: response.content[0].text,
-          source: 'claude'
-        });
-      } catch (error) {
-        console.error('Claude error:', error.message);
-        return res.status(200).json({
-          success: true,
-          text: getResponse(message),
-          source: 'fallback'
-        });
-      }
-    } else {
-      return res.status(200).json({
-        success: true,
-        text: getResponse(message),
-        source: 'fallback'
-      });
-    }
-  } catch (error) {
-    console.error('Server error:', error);
-    return res.status(500).json({ error: 'Server error' });
-  }
+  return basePrompt;
 }
 
 function getResponse(msg) {
